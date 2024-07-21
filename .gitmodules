@@ -1,0 +1,3 @@
+[submodule "test-nested-repo"]
+	path = test-nested-repo
+	url = https://github.com/akurakuu/test-nested-repo.git
