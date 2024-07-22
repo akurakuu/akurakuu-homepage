@@ -3,5 +3,9 @@ export default function PageTitle({
 }: {
     title: string
 }) {
-    return <h1 className="text-5xl">{title}</h1>;
+    return (
+        <div className="w-full h-[32rem] flex flex-col justify-center items-center">
+            <h1 className="text-5xl">{title}</h1>
+        </div>
+    );
 }

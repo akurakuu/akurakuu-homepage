@@ -2,18 +2,21 @@ import { Link as _Link, NavLink as _NavLink, Outlet } from "react-router-dom";
 
 export default function Layout() {
     return (
-        <div>
-            <nav className="bg-bg-primary text-text-primary px-4 flex justify-center items-center relative top-0">
+        <div className="bg-bg-primary text-text-primary min-h-screen">
+            <nav className="bg-bg-secondary px-6 flex justify-center items-center sticky top-0">
                 <div className="w-full h-16 flex justify-between items-center">
                     <div>
                         <Link to="/">Home</Link>
                     </div>
-                    <div>
+                    <div className="flex gap-2">
                         <NavLink to="/about">About</NavLink>
+                        <NavLink to="/activity">Activity</NavLink>
                     </div>
                 </div>
             </nav>
-            <Outlet />
+            <main>
+                <Outlet />
+            </main>
         </div>
     );
 }
@@ -30,12 +33,13 @@ function Link(props: { to: string, children: React.ReactNode }) {
 
 function NavLink(props: { to: string, children: React.ReactNode }) {
     return (
-        <_NavLink to={props.to} className={({ isActive/*, isPending, isTransitioning*/ }) =>
+        <_NavLink to={props.to} className={({ isActive, isPending, isTransitioning }) =>
             [
                 LINKS_CLASS,
-                // isPending ? "pending" : "",
-                isActive ? "bg-black" : "",
-                // isTransitioning ? "transitioning" : "",
+                "transition-colors",
+                isPending ? "bg-slate-600" : "",
+                isActive ? "bg-indigo-600 bg-opacity-50" : "hover:bg-slate-700",
+                isTransitioning ? "bg-orange-700" : "",
             ].join(" ")
         }>
             {props.children}
