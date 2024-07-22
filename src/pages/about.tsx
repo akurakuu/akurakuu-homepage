@@ -1,9 +1,11 @@
-import PageTitle from "./components/pageTitle";
+import ArticleHead from "./components/ArticleHead";
+import PageTitle from "./components/PageTitle";
 
 export default function About() {
     return (
         <>
             <PageTitle title="About" />
+            <ArticleHead title="About" />
             <section>
                 <h2 className="text-2xl mb-4">
                     akurakuu
